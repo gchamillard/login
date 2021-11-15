@@ -1,0 +1,40 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h3 class="title is-3">Identification</h3>
+
+                <form [formGroup]="identForm" (ngSubmit)="authentification()">
+                    <div class="field">
+                        <label class="label">Login</label>
+                        <div class="control">
+                            <p [ngClass]="{ 'has-error': isSubmitted && badLogin }">
+                                <input class="input is-success" formControlName="login" type="text" placeholder="">
+                            </p>
+                            <div *ngIf="isSubmitted && badLogin" class="help-block">
+                                <div *ngIf="badLogin">Un login est demandé !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Mot de passe</label>
+                        <div class="control">
+                            <table id="chiffres">
+                                <tr id="ligne">
+                                    <td>
+                                        <input *ngFor="let chiffre of tabChiffres" id='{{chiffre}}' type='button' class='chiffre' (click)='remplissageSelect(chiffre)' value='{{chiffre}}' /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link">Soumettre</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

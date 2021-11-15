@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'login';
+  // Déclaration de la variable (typée !) pour l'utilisateur
+  login:string = '';
+
+  onLoginAdded(event : string) {
+    this.login = event;
+  }
+
+  getConnect() {
+    return this.login != '';
+  }
 }
